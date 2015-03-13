@@ -8,8 +8,8 @@ var p3 = Interthane990hs;
 var bestTemp = 199;
 var bestDiff = 199;
 var difference;
-var minMaxDry
-
+var minMaxDry;
+var x;
 
 var goGetIt;
 var min_dft = 5.0; //later this will be provided by the user
@@ -23,10 +23,10 @@ ratio: "1-1",
 volumeSolids: 0.63,
 curingSchedules: [23, 41, 77, 95],
 h: {
-    h23: ["touch-dry", "6hrs", "hard-dry", "28 hrs", "pot-life", "6hrs", "interfine979", "30 hrs", "5 dys", "intergard267", "30 hrs", "14 dys", "intergard740", "30 hrs", "7 dys", "intershield300v (immersed)", "30 hrs", "14 dys", "intershield300v", "30 hrs", "6 mths", "interthane990hs", "30 hrs", "3 dys"],
-    h41: ["touch-dry", "4hrs", "hard-dry", "17hrs", "pot-life", "6hrs", "Interfine979", "18hrs", "5dys", "Intergard267", "18hrs", "14dys", "Intergard740", "18hrs", "7dys", "Intershield300v", "18 hrs", "6mnths", "Intershield300v(immersed)", "18hrs", "14 dys", "Interthane990hs", "18hrs", "3dys"],
-    h77:["touch-dry", "3hrs", "hard-dry", "4hrs", "pot-life", "2hrs",  "Interrfine979", "6.5hrs", "3dys, Intergard267, 6.5hrs, 14dys, Intergard740, 6.5hrs", "7dys", "Intershield300v(immersed)", "6.5hrs", "14dys", "Intershield300v", "6.5hrs", "5.5mnths", "Interthane990hs", "6.5hrs", "3dys"],
-    h95: ["touch-dry", "60 mins", "hard-dry", "2 hrs", "pot-life", "60 mins", "interfine979", "4 hrs", "3 dys", "intergard267", "4 hrs", "14 dys", "intergard740", "4 hrs", "7 dys", "intershield300v (immersed)", "4 hrs", "14 dys", "intershield300v", "4 hrs", "3 mnths", "interthane990hs", "4 hrs", "3 dys"]
+    h23: ["touch-dry", "6hrs", "hard-dry", "28 hrs", "pot-life", "6hrs", "Interfine979", "30 hrs", "5 dys", "intergard267", "30 hrs", "14 dys", "intergard740", "30 hrs", "7 dys", "300v (immersed)", "30 hrs", "14 dys", "300v", "30 hrs", "6 mths", "Interthane990hs", "30 hrs", "3 dys"],
+    h41: ["touch-dry", "4hrs", "hard-dry", "17hrs", "pot-life", "6hrs", "Interfine979", "18hrs", "5dys", "Intergard267", "18hrs", "14dys", "Intergard740", "18hrs", "7dys", "300v", "18 hrs", "6mnths", "300v(immersed)", "18hrs", "14 dys", "Interthane990hs", "18hrs", "3dys"],
+    h77:["touch-dry", "3hrs", "hard-dry", "4hrs", "pot-life", "2hrs",  "Interrfine979", "6.5hrs", "3dys, Intergard267, 6.5hrs, 14dys, Intergard740, 6.5hrs", "7dys", "300v(immersed)", "6.5hrs", "14dys", "300v", "6.5hrs", "5.5mnths", "Interthane990hs", "6.5hrs", "3dys"],
+    h95: ["touch-dry", "60 mins", "hard-dry", "2 hrs", "pot-life", "60 mins", "Interfine979", "4 hrs", "3 dys", "Intergard267", "4 hrs", "14 dys", "intergard740", "4 hrs", "7 dys", "300v (immersed)", "4 hrs", "14 dys", "300v", "4 hrs", "3 mnths", "Interthane990hs", "4 hrs", "3 dys"]
 }
 };
 var Interthane990hs = {
@@ -92,39 +92,7 @@ if (difference < bestDiff) {
      bestDiff = difference;
 }
 }
-return bestTemp
-};
-//function below combines the result of closest function
-//into the naming convention of the curing schedule hashes
-//it calls out the correct curing schedule by name.
-var whichCureSchedule = function whichCureSchedule () {
-var tada
-tada = "h" + closest();
-goGetIt = "Intershield300v.h." + tada
-};
-//The function below actually searches across the 
-//curing schedule to find the product name for the
-//subsequent coat, and thusly the associated dry times for the
-//PRESENT coat.
-
-var getDryTimes = function getDryTimes () {
- /*   console.log("drytimes function has loaded")
-var mindry;
-var maxdry;*/
-var x;
-//this line appears to actually reach through to the right places. It may eliminate the neet for the function above.
-x = Intershield300v.h["h" + closest()];
-//console.log("x is" + x);
-//x = goGetIt.indexOf(Intershield300v);
-//mindry = goGetIt[x+1];
-//maxdry = goGetIt[x+2];
-//minMaxDry = mindry + ", " + maxdry;
-//console.log("mindry:" + mindry)
-//console.log("maxdry:" + maxdry)
-console.log("value of 'X': " + x)
-console.log("Here is 'xdot3': " + x[3])
-//return minMaxDry;
-return x
+return bestTemp;
 };
 var tempRange = function tempRange () {
 var minTemp = Intershield300v.curingSchedules[0];
@@ -132,11 +100,24 @@ var maxTemp = Intershield300v.curingSchedules[Intershield300v.curingSchedules.le
 var goodTemps = minTemp + ", " + maxTemp;
 return goodTemps;
 };
-console.log(Intershield300v.name)
-console.log("your mils dry/wet: " + min_dft + ", " + getDFT())
-console.log("Your temp is: " + temp)
-console.log("And your table is: " + closest ())
-console.log("The temperature range for painting: " + tempRange())
-console.log("your dry times: " + getDryTimes())
-//next thing to do is get output as soon as possible: make the program run once and output the info for a single coat of paint. Then try it again with new info for coat 2, and get different results. 
-    
+var getSchedule = function getSchedule () {
+x = Intershield300v.h["h" + closest()];
+console.log("value of 'X': " + x);
+};
+function thursday () {
+var nextProduct = Intershield300v.h.h41.indexOf("300v");
+var minDryPos = nextProduct + 1;
+var maxDryPos = nextProduct + 2;
+var mindry = Intershield300v.h.h41[minDryPos]
+var maxdry = Intershield300v.h.h41[maxDryPos]
+console.log("next-product:" + nextProduct);
+console.log("mindry:" + mindry);
+console.log("maxdry: " + maxdry);
+return x;
+};
+
+console.log(Intershield300v.name);
+console.log("your mils dry/wet: " + min_dft + ", " + getDFT());
+console.log("Your temp is: " + temp);
+console.log("And your table is: " + closest ());
+thursday();
