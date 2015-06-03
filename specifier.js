@@ -121,3 +121,8 @@ console.log("your mils dry/wet: " + min_dft + ", " + getDFT());
 console.log("Your temp is: " + temp);
 console.log("And your table is: " + closest ());
 thursday();
+/* the p1 to p3 variables don't work because they are
+are above the objects. The arrays may have to be replaced
+with objects--because it will take less time to indicate
+the dry times within an object, rather than search
+through an array*/
