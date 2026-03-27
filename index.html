@@ -1,8 +1,14 @@
+
 <!doctype html>
+<!-- This is the branch for web repository -->
 <html>
 <head>
-<title>Paint Specifier 1.0</title>
-<meta name="description" content="A smart little app for marine and industrial painters, coatings inspectors, tech reps, project managers, and port engineers."
+<title>PaintLogic calculator 1.4</title>
+<meta name="description" content="A smart little app for marine and industrial painters, coatings inspectors, tech reps, project managers, and port engineers.">
+<meta name="robots" content="noindex, nofollow, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noimageindex">
+<!-- No index needed, because it is not for public use -->
+    
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
@@ -10,24 +16,30 @@
 <link href="specifier.css" rel="stylesheet">
 
 <body>
-     <div>
-     <p>Step one: enter the number of coats, and manufacturer. Then press "go."</p>
-<p>Number of coats:
-<input type="number" id="c" min="1" max="15">
+    <h1>Coatings specification calculator</h1>
+
+    <p id="mainGraph"> This page is for professional coatings inspectors. PaintLogic version 1.4 developed by Clarence W. Cromwell.   </p>
+    
+  
+     <div id="topBox">
+     <p>Enter the number of coats. Then press "go."</p>
+<p>Coats:
+<input type="number" id="c" min="1" max="15" autofocus required>
 </p>
 <!-- Manufacturer selector is disabled until needed
 <p>Manufacturer:
 <input type="text" name="mfg" id="mfg">
 </p>
 -->
-<button type="button" onclick="buttonhandler()">G0</button>
-<hr>
+<button type="button" onclick="buttonhandler()">Go</button>
+
 </div>
-<div>
+    
+<div id="middleBox">
 <p>Step two: enter the average expected temperature (in Farenheit degrees). Then choose the product and minimum dry film thickness for each coat of paint. </p>
 <form action="none">
 
-     <p> Enter average expected temperature (F): <input name="tmp" id="tmp" type="number" min="0" max="150"> 
+     <p> Enter average expected temperature (F): <input name="tmp" id="tmp" type="number" min="0" max="150" required> 
      </p>
 <ul>
      <li id="b0"> </li>
@@ -48,18 +60,23 @@
      <li id="b15"> </li>
 
 </ul>
-     <button type="button" onclick="menuHandler()"> Calculate </button>
+    
+    <button class="reloadButton" type="button" value="reload page" onclick="history.go(0)"> Start over </button>
+    
+     
+    <button class="calculateButton" type="button" onclick="menuHandler()"> Calculate </button>
 
 
 </form>
 </div>
-<div>
+<div id = "bottomBox">
 
 
      
 
 
      <table id="output">
+         <tr><th>Spot/full</th><th>No.</th><th>Type</th><th>WFT min.</th><th>WFT max.</th><th>DFT min.</th><th>DFT max.</th><th>Manuf.</th><th>Product </th><th>Mix ratio</th><th>Color</th><th>Induction time</th><th>Min. temp. for application</th><th>Max. temp. for application</th><th>Min. dry time</th><th>Max. dry time</th></tr>
      <tr id="d0"> </tr>
      <tr id="d1"> </tr>
      <tr id="d2"> </tr>
@@ -79,13 +96,18 @@
      </table>
 
 
-
-
+<button class="reloadButton" type="button" value="reload page" onclick="history.go(0)"> Start Over </button>
 </div>
-<script src="InternationalPaintData.js">window.onload</script> 
-<script src="specifier3.js">window.onload</script>
+    <footer>
+<p> 
+        </p>
+
+<script src="InternationalPaintData.js"></script> 
+<script src="specifier4.js"></script>
 
 
 <!--<script src="externalbb.js"></script> -->
 </body>	
 </html>
+
+

@@ -1,4 +1,4 @@
-var manufacturer;
+ var manufacturer;
 var bestTemp;
 var bestDiff;
 var difference;
@@ -48,8 +48,8 @@ var x = document.getElementById("c").value;
 temp = document.getElementById("tmp").value;
    for (i=0; i<x; i+=1)   {
       console.log("menuhandler counter: " + i);
-      customerProduct[i] = eval("b"+i ).firstElementChild.value;
-      customerThickness[i] = eval("b"+i ).lastElementChild.value;
+      customerProduct[i] = eval("b"+i).firstElementChild.value;
+      customerThickness[i] = eval("b"+i).lastElementChild.value;
     }
 reportBack(); //calls the report-back function so the paint spec array can be used. 
 } ;
