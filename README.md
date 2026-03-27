@@ -36,7 +36,7 @@ Each of the remaining rows represents one coat of paint.
 
 #### Error handling
 
-If you've asked the calculator to include something in the paint spec that isn't recommended by the manufacturer, you won't see any data for one or more of the coats. Instead, the table will contain this error message: "Error: Incompatible products, surface temperature limits exceeded, or no overcoating data exists."
+If you've asked the calculator to include something in the paint spec that isn't recommended by the manufacturer, you won't see any data for one or more of the coats. Instead, the table will contain this error message: "Error: Incompatible products or no overcoating data exists."
 
 That error tells you that one of the following issues is present: 
 * The products are completely incompatible. For example indicating an epoxy primer over the top of a polyurethane topcoat or an AF topcoat will result in this error.
