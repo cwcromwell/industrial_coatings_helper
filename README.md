@@ -42,7 +42,7 @@ That error tells you that one of the following issues is present:
 * The products are completely incompatible. For example indicating an epoxy primer over the top of a polyurethane topcoat or an AF topcoat will result in this error.
 * The manufacturer simply does not provide instructions for overcoating with the products you specified. Generally, manufacturer data describes how to overcoat within the same family of products. Changing brands between coats might seem like a good idea, but it hasn't been tested and dry times are not published.
 
-If you want to mix brands or use a topcoat from the same family that is not explicitely indicated in the data sheet for the basecoat -- talk to your coatings rep, and ask them to write a specification.
+If you want to mix brands or use a topcoat from the same family that is not explicitely indicated in the data sheet for the basecoat -- talk to your coatings rep and ask them to write a specification, but don't be surprised if they're not allowed to offer a warranty. 
 
   
  
