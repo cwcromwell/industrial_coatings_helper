@@ -41,7 +41,7 @@ output: "",
 };
 
 // Lookup dictionary: maps product name strings (from dropdown values) to the product objects defined in InternationalPaintData.js
-paint.products = {
+products = {
     Intershield300V: window.Intershield300V,
     Intershield300VImmersed: window.Intershield300VImmersed,
     Interthane990HS: window.Interthane990HS,
@@ -169,13 +169,13 @@ paint.x = document.getElementById("c").value;
      paint.kay=k;
      paint.output = "d"+k;
     // console.log("output= " + paint.output);
-   paint.currentProduct = paint.products[paint.customerProduct[paint.kay]];
-   paint.nextProduct = paint.products[paint.customerProduct[paint.kay + 1]];
+   paint.currentProduct = products[paint.customerProduct[paint.kay]];
+   paint.nextProduct = products[paint.customerProduct[paint.kay + 1]];
    
 
    if (k<paint.x-1) {console.log("getschedule "+paint.kay);}
   else if (k==paint.x-1) {
-   paint.nextProduct = paint.products[paint.customerProduct[paint.kay]];
+   paint.nextProduct = products[paint.customerProduct[paint.kay]];
     console.log('get schedule last coat');
 //This function allows the final coat to execute, without needing info for the "next coat"
   }
